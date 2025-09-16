@@ -6,7 +6,12 @@ from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from app.models import Base, ShortUrlRow
 
-engine = create_engine(DB_URL, echo="debug", future=True)
+if DB_URL.startswith("sqlite"):
+    connect_args = {"check_same_thread": False}
+else:
+    connect_args = {}
+
+engine = create_engine(DB_URL, connect_args, echo="debug", future=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit = False, expire_on_commit=False)
 
 Base.metadata.create_all(engine)
