@@ -11,5 +11,5 @@ jobs:
   call-reusable:
     uses: bar-private-org/reusable-workflows/.github/workflows/ecr-build-push.yml@main
     with:
-      ecr_repo: url-shortener-service
+      ecr_repo: 'url-shortener-service'
     secrets: inherit
