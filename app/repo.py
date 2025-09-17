@@ -1,20 +1,23 @@
 from contextlib import contextmanager
-from typing import Iterable
 
-from app.config import DB_URL
-from sqlalchemy import create_engine, select
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.models import Base, ShortUrlRow
+from app.config import DB_URL, SQL_ECHO, POOL_SIZE, MAX_OVERFLOW, POOL_TIMEOUT, POOL_RECYCLE
+from app.models import Base
 
-if DB_URL.startswith("sqlite"):
-    connect_args = {"check_same_thread": False}
-else:
-    connect_args = {}
+engine = create_engine(
+    DB_URL,
+    echo=SQL_ECHO,
+    pool_size=POOL_SIZE,
+    max_overflow=MAX_OVERFLOW,
+    pool_pre_ping=True,
+    pool_recycle=POOL_RECYCLE,
+    connect_args={},  # psycopg2 usually fine empty
+)
 
-engine = create_engine(DB_URL, connect_args, echo="debug", future=True)
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit = False, expire_on_commit=False)
-
+SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base.metadata.create_all(engine)
+
 
 @contextmanager
 def session_scope():
