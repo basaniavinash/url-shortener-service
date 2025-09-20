@@ -1,9 +1,11 @@
 from contextlib import contextmanager
+from select import select
+from typing import Iterable
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.config import DB_URL, SQL_ECHO, POOL_SIZE, MAX_OVERFLOW, POOL_TIMEOUT, POOL_RECYCLE
-from app.models import Base
+from app.models import Base, ShortUrlRow
 
 engine = create_engine(
     DB_URL,

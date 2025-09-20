@@ -1,0 +1,6 @@
+.idea
+.venv
+.pytest_cache
+migrations/__pycache__
+migrations/versions
+app/__pycache__
