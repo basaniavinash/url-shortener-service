@@ -4,3 +4,5 @@
 migrations/__pycache__
 migrations/versions
 app/__pycache__
+local.db
+tests/__pycache__/test_shortener.cpython-312-pytest-8.4.1.pyc

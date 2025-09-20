@@ -16,4 +16,5 @@ jobs:
     uses: bar-private-org/reusable-workflows/.github/workflows/ecr-build-push.yml@main
     with:
       ecr_repo: "url-shortener-service"
+      aws_region: "us-east-1"
     secrets: inherit
