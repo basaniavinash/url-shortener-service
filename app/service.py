@@ -5,7 +5,7 @@ from typing import Optional
 from urllib.parse import urlparse
 
 from app import repo
-from app.config import ID_LENGTH, BASE_URL
+from app.config import ID_LENGTH, DB_URL as BASE_URL
 from app.models import ShortUrlRow
 
 _ALPHABET = string.ascii_letters+string.digits

@@ -1,5 +1,6 @@
 import os
 
+ID_LENGTH = os.getenv("ID_LENGTH", "7")
 DB_URL = os.getenv("DB_URL", "sqlite:///./local.db")
 SQL_ECHO = bool(int(os.getenv("SQL_ECHO", "0")))
 POOL_SIZE = int(os.getenv("POOL_SIZE", "5"))
