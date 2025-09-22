@@ -23,7 +23,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: app
-          image: something
+          image: url-shortener-service
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000

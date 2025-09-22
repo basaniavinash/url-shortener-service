@@ -5,8 +5,8 @@ resources:
   - ../../base
   - ingress.yaml
 images:
-  - name: REPLACE with ECR/image
-    newName: xxxx.dkr.ecr.us-east-1.amazonaws.com/url-shortener-service
+  - name: url-shortener-service
+    newName: 872515255909.dkr.ecr.us-east-1.amazonaws.com/url-shortener-service
     newTag: latest
 patches:
   - target:
