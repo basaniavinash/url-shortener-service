@@ -6,7 +6,7 @@ resources:
   - ingress.yaml
 images:
   - name: url-shortener-service
-    newName: 872515255909.dkr.ecr.us-east-1.amazonaws.com/url-shortener-service
+    newName: <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/url-shortener-service
     newTag: latest
 patches:
   - target:
